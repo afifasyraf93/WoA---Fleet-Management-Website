@@ -1,0 +1,219 @@
+{
+  "activeAirport": "IAD",
+  "airports": [
+    {
+      "iata": "IAD",
+      "name": "Washington Dulles",
+      "country": "USA",
+      "status": "Unlocked",
+      "notes": "Main hub. Airbus Empire base.",
+      "fleet": [
+        {
+          "icao": "A19N",
+          "name": "A319neo",
+          "manufacturer": "Airbus",
+          "size": "C",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "IAD-SXM",
+          "notes": "",
+          "standType": "C PAX",
+          "id": "f_mp418bhvkv8",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A388",
+          "name": "A380-800",
+          "manufacturer": "Airbus",
+          "size": "F",
+          "type": "Passenger",
+          "gen": "2",
+          "route": "IAD-BKK",
+          "status": "Active",
+          "standType": "D-F PAX",
+          "notes": "Phase 2 — highest XP. Need F-stands first.",
+          "id": "f_mp419ddxgmp",
+          "addedDate": "2026-05-13",
+          "airport": "IAD"
+        },
+        {
+          "icao": "A332",
+          "name": "A330-200",
+          "manufacturer": "Airbus",
+          "size": "E",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "IAD-LHR",
+          "notes": "",
+          "standType": "D-F PAX",
+          "id": "f_mp41argffb9",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "CRJ9",
+          "name": "CRJ900",
+          "manufacturer": "Bombardier",
+          "size": "B",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "IAD-TMP",
+          "notes": "",
+          "standType": "A-B PAX",
+          "id": "f_mp41bezdccl",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A346",
+          "name": "A340-600",
+          "manufacturer": "Airbus",
+          "size": "E",
+          "type": "Passenger",
+          "gen": "2",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "IAD-LHR",
+          "notes": "",
+          "standType": "D-F PAX",
+          "id": "f_mp41hh5rte6",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A321",
+          "name": "A321-200",
+          "manufacturer": "Airbus",
+          "size": "C",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "IAD-SAN",
+          "notes": "",
+          "standType": "C PAX",
+          "id": "f_mp42yzjaxla",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A3ST",
+          "name": "A300-600ST Beluga",
+          "manufacturer": "Airbus",
+          "size": "D",
+          "type": "Cargo",
+          "gen": "2",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "",
+          "notes": "",
+          "standType": "D-G Cargo",
+          "id": "f_mp43fto9mhy",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A359",
+          "name": "A350-900",
+          "manufacturer": "Airbus",
+          "size": "E",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "IAD",
+          "status": "Active",
+          "route": "",
+          "notes": "",
+          "standType": "D-F PAX",
+          "id": "f_mp43g7ip800",
+          "addedDate": "2026-05-13"
+        }
+      ],
+      "wishlist": [
+        {
+          "icao": "A321",
+          "name": "A321-200",
+          "manufacturer": "Airbus",
+          "size": "C",
+          "type": "Passenger",
+          "priority": "High",
+          "status": "Unlocked",
+          "targetAirport": "PRG",
+          "plannedRoute": "PRG-LHR",
+          "notes": "",
+          "standType": "",
+          "id": "w_mp42w2jzbh4",
+          "addedDate": "2026-05-13"
+        }
+      ],
+      "currentLevel": 89
+    },
+    {
+      "iata": "INN",
+      "name": "Innsbruck",
+      "country": "Austria",
+      "status": "Unlocked",
+      "notes": "Small alpine airport. D-size destination from IAD.",
+      "fleet": [],
+      "wishlist": []
+    },
+    {
+      "iata": "BRI",
+      "name": "Bari",
+      "country": "Italy",
+      "status": "Unlocked",
+      "notes": "Medium E-size airport. Good for A321XLR.",
+      "fleet": [],
+      "wishlist": []
+    },
+    {
+      "iata": "PRG",
+      "name": "Prague",
+      "country": "Czech Republic",
+      "status": "Unlocked",
+      "notes": "Large F-size. Best secondary hub. 3 cargo slots.",
+      "fleet": [
+        {
+          "icao": "A35K",
+          "name": "A350-1000",
+          "manufacturer": "Airbus",
+          "size": "E",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "PRG",
+          "status": "Active",
+          "route": "PRG-IAD",
+          "notes": "",
+          "standType": "D-F PAX",
+          "id": "f_mp41h0shuu0",
+          "addedDate": "2026-05-13"
+        },
+        {
+          "icao": "A321",
+          "name": "A321-200",
+          "manufacturer": "Airbus",
+          "size": "C",
+          "type": "Passenger",
+          "gen": "3",
+          "airport": "PRG",
+          "route": "PRG-LHR",
+          "status": "Active",
+          "standType": "C PAX",
+          "notes": "",
+          "id": "f_mp42w6osi4x",
+          "addedDate": "2026-05-13"
+        }
+      ],
+      "wishlist": []
+    },
+    {
+      "iata": "BKK",
+      "name": "Bangkok Suvarnabhumi",
+      "country": "Thailand",
+      "status": "Unlocked",
+      "notes": "PRIORITY destination. 4 PAX + 5 cargo slots from IAD.",
+      "fleet": [],
+      "wishlist": []
+    }
+  ]
+}
