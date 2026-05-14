@@ -1,39 +1,77 @@
 # ✈ WoA Fleet Manager
 
-A local web app to manage your World of Airports fleet — inspired by blue-utils.me.
-Pure HTML/CSS/JS. No frameworks. No build tools. One Python command to run.
+A local web app to manage your World of Airports Airbus Empire — fleet, wishlist, airports, stand planning, route optimizing, and SP/XP calculations.
 
 ---
 
 ## Quick Start
 
-```bash
+```powershell
 # 1. Enter the project folder
 cd woa-fleet-manager
 
-# 2. Start the local server (Python 3 only, no installs needed)
-python server.py
+# 2. Start the server
+py server.py
 
 # 3. Open your browser
-# http://localhost:8080
+# http://localhost:7000
 ```
 
-That's it. Your data is saved to `data/data.json` automatically.
+Your data saves automatically to `data/data.json`.
 
 ---
 
-## Loading Game CSV Data
+## Aircraft & Airport Images
 
-Drop the community CSV files into `data/csv/` and rename them:
+Place your own images in the `images/` folder:
 
-| Rename to              | Original file                                        |
-|------------------------|------------------------------------------------------|
-| `data/csv/aircraft.csv`     | `WoA_3_5_0_-_..._Aircraft_Data.csv`            |
-| `data/csv/destinations.csv` | `WoA_3_5_0_-_..._Destination_List.csv`         |
-| `data/csv/layout.csv`       | `WoA_3_5_0_-_..._Airport_Layout.csv`           |
+```
+images/
+├── aircraft/
+│   ├── A333.jpg      ← named by WoA ICAO code
+│   ├── A359.jpg
+│   ├── A388.jpg
+│   └── ...
+└── airports/
+    ├── IAD.jpg       ← named by IATA code
+    ├── BKK.jpg
+    ├── PRG.jpg
+    └── ...
+```
 
-The **Aircraft Reference** tab will automatically load and display all aircraft from the CSV,
-with filtering by manufacturer, size, and type.
+**Naming rules:**
+- Must match the WoA ICAO / IATA code exactly (uppercase)
+- Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`
+- If using a different extension, update `AIRCRAFT_EXT` / `AIRPORT_EXT` in `js/images.js`
+- Missing images show a clean placeholder automatically — no errors
+
+**Recommended sources:**
+- Aircraft: [Planespotters.net](https://www.planespotters.net) — search by aircraft type
+- Aircraft: [Airliners.net](https://www.airliners.net) — search by aircraft type
+- Airports: Wikipedia — search "[airport name]", go to Commons tab
+- Airports: Google Images — search "[IATA] airport aerial"
+
+**Tips for best results:**
+- Landscape orientation (16:9 or wider) fits the cards best
+- Side-on or 3/4 angle shots look cleanest for aircraft
+- Aerial or terminal exterior shots work best for airports
+- Aim for at least 400px wide
+
+---
+
+## Features
+
+| Page | Description |
+|---|---|
+| **Home** | Overview stats, quick navigation cards |
+| **Fleet** | Add/edit/delete aircraft per airport. ICAO auto-fill from CSV. Export to CSV. |
+| **Wishlist** | Track aircraft to unlock with priority. One-click promote to fleet. |
+| **Stand Planner** | Real stand counts from layout.csv. Shows occupancy bars + unassigned aircraft warnings. |
+| **Airport Info** | Full profiles from layout + characteristics CSV. Level progress tracker. |
+| **Destinations** | All game airports with distances from active hub. Filter by size and slots. |
+| **SP/XP Calculator** | Estimate earnings for any aircraft + route. Top routes by SP/hr. |
+| **Route Optimizer** | Rank all reachable destinations by SP/hr, XP/hr, or daily SP. |
+| **Aircraft Data** | Full aircraft specs from game CSV. Filter by manufacturer, size, type. |
 
 ---
 
@@ -41,53 +79,68 @@ with filtering by manufacturer, size, and type.
 
 ```
 woa-fleet-manager/
-├── index.html              ← Open this in browser (via server)
-├── server.py               ← Local server (python server.py)
+├── index.html                  ← Main app
+├── server.py                   ← Local server (py server.py)
+├── download_images.py          ← Optional: auto-download images script
 ├── css/
-│   └── style.css           ← All styles
+│   └── style.css
 ├── js/
-│   ├── csv.js              ← CSV parser & loader
-│   ├── store.js            ← Read/write data.json
-│   ├── app.js              ← Router & init
+│   ├── csv.js                  ← CSV parser
+│   ├── store.js                ← Data read/write (data.json)
+│   ├── autocomplete.js         ← ICAO auto-fill + stand type suggest
+│   ├── images.js               ← Aircraft & airport image mapping
+│   ├── app.js                  ← Router & navigation
 │   └── pages/
-│       ├── fleet.js        ← My Fleet page
-│       ├── wishlist.js     ← Wishlist page
-│       └── other-pages.js  ← Airports, Routes, Reference
-└── data/
-    ├── data.json           ← YOUR personal data (auto-saved)
-    ├── data.json.bak       ← Auto-backup before each save
-    └── csv/
-        ├── aircraft.csv         ← Drop game CSV here
-        ├── destinations.csv     ← Drop game CSV here
-        └── layout.csv           ← Drop game CSV here
+│       ├── fleet.js
+│       ├── wishlist.js
+│       ├── standplanner.js
+│       ├── airportinfo.js
+│       ├── other-pages.js      ← Destinations, Aircraft Data
+│       ├── calculator.js
+│       └── routeoptimizer.js
+├── data/
+│   ├── data.json               ← Your personal data (auto-saved)
+│   ├── data.json.bak           ← Auto-backup before each save
+│   └── csv/
+│       ├── aircraft.csv
+│       ├── destinations.csv
+│       ├── layout.csv
+│       └── characteristics.csv
+└── images/
+    ├── aircraft/               ← [ICAO].jpg
+    └── airports/               ← [IATA].jpg
 ```
 
 ---
 
-## Features
+## Multi-Airport Support
 
-| Page | What you can do |
-|------|----------------|
-| **My Fleet** | Add, view, edit, delete aircraft. Filter by manufacturer, size, type, status. Cards show ICAO, route, status badges. |
-| **Wishlist** | Track aircraft to unlock. Priority (High/Medium/Low). One-click "Move to Fleet" when unlocked. |
-| **Airports** | Manage your hub + destination airports. Track unlock status, stands, slots, distances. |
-| **Route Assignments** | Map which aircraft flies which route. Track Active/Planned/Paused routes with stand types. |
-| **Aircraft Reference** | Full game data loaded from your CSV. Search and filter all aircraft stats. |
+Each playable airport has its own independent fleet and wishlist. Switch between airports using the **Airport switcher** in the top-right navbar. Adding an aircraft with a different airport in the Airport field automatically moves it to that airport's fleet.
 
 ---
 
 ## Data Backup
 
-Every time data is saved, `data.json.bak` is created automatically.
-To restore: `copy data/data.json.bak data/data.json` (Windows) or `cp data/data.json.bak data/data.json` (Mac/Linux).
+Every save creates `data/data.json.bak` automatically. To restore:
 
-You can also just open `data/data.json` in any text editor — it's plain JSON.
+```powershell
+# Windows
+copy data\data.json.bak data\data.json
+
+# Mac/Linux
+cp data/data.json.bak data/data.json
+```
+
+`data.json` is plain JSON — you can open and edit it in any text editor.
 
 ---
 
 ## Customising
 
-- **Colors & theme**: edit CSS variables at the top of `css/style.css`
-- **Add a new field**: add the input to the `formHTML()` function in the relevant page file, then add it to `collectForm()`
-- **Change hub airport**: edit the sidebar subtitle in `app.js` → `sidebarHTML()`
-- **Add a new page**: create a module in `js/pages/`, register it in the `pages` object in `app.js`
+| What | Where |
+|---|---|
+| Colors & theme | CSS variables at top of `css/style.css` |
+| Server port | `PORT = 7000` in `server.py` |
+| Image file extension | `AIRCRAFT_EXT` / `AIRPORT_EXT` in `js/images.js` |
+| Add new aircraft ICAO | Add to `AIRCRAFT` map in `js/images.js` |
+| Add new airport image | Add to `AIRPORT_WIKI` map in `js/images.js` |
