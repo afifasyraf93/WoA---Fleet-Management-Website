@@ -1,0 +1,28 @@
+# ── Personal data ─────────────────────────────────────────────
+data/data.json
+data/data.json.bak
+
+# ── Game assets (large files, personal extraction) ────────────
+data/asset/
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# ── OS files ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log

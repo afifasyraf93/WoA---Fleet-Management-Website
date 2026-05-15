@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WoA Fleet Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-logo" data-page="home">
+    <div class="navbar-logo-icon">✈</div>
+    WoA Fleet Manager
+  </div>
+  <div class="navbar-nav" id="main-nav">
+    <div class="nav-link" data-page="home"><span class="icon">🏠</span> Home</div>
+  </div>
+  <div class="navbar-right">
+    <div class="ap-switcher" id="ap-switcher">
+      <div class="ap-switcher-label">Airport</div>
+      <!-- populated by JS -->
+    </div>
+    <button id="theme-toggle" title="Toggle dark mode" style="
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+      border-radius:6px; color:#fff; padding:5px 10px; font-size:15px;
+      cursor:pointer; margin-left:8px; line-height:1; transition:background .15s;">
+      🌙
+    </button>
+    <span class="navbar-version" style="margin-left:8px">v3.5.0</span>
+  </div>
+</nav>
+
+<div id="root"></div>
+<div id="toast-box"></div>
+
+<script src="js/csv.js"></script>
+<script src="js/store.js"></script>
+<script src="js/images.js"></script>
+<script src="js/autocomplete.js"></script>
+<script src="js/pages/fleet.js"></script>
+<script src="js/pages/wishlist.js"></script>
+<script src="js/pages/standplanner.js"></script>
+<script src="js/pages/airportinfo.js"></script>
+<script src="js/pages/other-pages.js"></script>
+<script src="js/pages/calculator.js"></script>
+<script src="js/pages/routeoptimizer.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
