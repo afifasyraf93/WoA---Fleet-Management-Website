@@ -7,9 +7,8 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML%2FCSS%2FJS-Vanilla-orange?logo=html5&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-3.5.0-skyblue)
 
-[Features](#features) · [Quick Start](#quick-start) · [Setup](#setup) · [Screenshots](#screenshots) · [Project Structure](#project-structure)
+[Features](#features) · [Quick Start](#quick-start) · [Setup](#setup) · [Project Structure](#project-structure)
 
 </div>
 
